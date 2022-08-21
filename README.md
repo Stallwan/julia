@@ -1,2 +1,1 @@
-# julia
 Julia fractal generator.
