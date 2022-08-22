@@ -15,8 +15,8 @@ def julia(z0, c, i):
         if abs(z) > 2: break
     return it
 
-plan = create_complex_matrix(-8, 2, -6, 6, quality=1000)
-julia = julia(plan, complex(-0.4, 0.6), i=50)
+plan = create_complex_matrix(-4, 4, -4, 4, quality=1250)
+julia = julia(plan, complex(0.-0.8, 0.156), i=80)
 
-plt.imshow(julia, cmap="viridis")
+plt.imshow(julia, cmap="hsv")
 plt.show()
