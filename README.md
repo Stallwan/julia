@@ -15,4 +15,8 @@ All you really need to remember is this part:
 ```
 ... <density-pixel> <detail-density> <cr> <ci> [-c THEME]
 ```
+You can also add `--save FILENAME` (or `-s`) to save the figure e.g.:
+```
+python run.py 500 300 -0.4 0.6 -c "inferno" -s "fig1.jpg"
+```
 Use `--help` for more informations about CLI.
