@@ -2,7 +2,7 @@ import argparse
 import numpy as np
 import matplotlib.pyplot as plt
 
-from src.julia import Julia
+from src.julia import *
 
 
 if __name__ == "__main__":
@@ -14,23 +14,32 @@ if __name__ == "__main__":
     julia.add_argument("c", type=float, nargs=2, help="complex number 'c' being the starting point of the fractal")
 
     julia.add_argument("-c", "--colors", type=str, help="to choose the color")
+    julia.add_argument("-s", "--save", type=str, help="to save figure")
 
     args = julia.parse_args()
 
     
+    print(args)
+    
     c = complex(args.c[0], args.c[1])
 
-    j = Julia
-    plan = j.create_complex_matrix(-4, 4, -4, 4, args.pixeldensity)
-    julia = j.new(plan, c, args.detaildensity)
-
-    plt.figure(figsize=(10, 10))
+    plan = create_complex_matrix(-2, 2, -2, 2, args.pixeldensity)
+    julia = new(plan, c, args.detaildensity)
 
     if args.colors:
         plt.imshow(julia, cmap=args.colors)
+        
+        if args.save:
+            plt.savefig(args.save) 
+
         plt.show()       
 
     else:
-        plt.imshow(julia, cmap="hsv")
+        plt.imshow(julia, cmap="gray")
+
+        if args.save:
+            plt.savefig(args.save) 
+
         plt.show()       
+
 
